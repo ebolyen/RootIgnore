@@ -82,7 +82,7 @@ function! s:WildignoreFromGitignore(gitpath, isAtRoot)
 
 endfunction
 
-function! RootIgnore()
+function! g:RootIgnore()
   if !exists("g:RootIgnoreUseHome") || g:RootIgnoreUseHome
     let home = finddir("~", ":p:h")
     call s:WildignoreFromGitignore(home, 1)

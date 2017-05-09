@@ -16,6 +16,9 @@
 " foo/.gitingore ignores _*, CtrlP ignores foo/bar/_build and all results are
 " under foo/bar/
 
+" Modified: Evan Bolyen
+" Details: remove script scope and automatic call from RootIgnore
+
 function! s:WildignoreFromGitignore(gitpath, isAtRoot)
   let gitignore = a:gitpath . "/.gitignore"
   if filereadable(gitignore)
@@ -79,7 +82,7 @@ function! s:WildignoreFromGitignore(gitpath, isAtRoot)
 
 endfunction
 
-function! s:RootIgnore()
+function! RootIgnore()
   if !exists("g:RootIgnoreUseHome") || g:RootIgnoreUseHome
     let home = finddir("~", ":p:h")
     call s:WildignoreFromGitignore(home, 1)
@@ -101,5 +104,3 @@ function! s:RootIgnore()
   endif
 
 endfunction
-
-call s:RootIgnore()

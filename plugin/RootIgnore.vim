@@ -39,7 +39,6 @@ function! s:WildignoreFromGitignore(gitpath, isAtRoot)
         endif
 
         if line =~ '/$' 
-          let igstring .= "," . line
           let igstring .= "," . line . "*"
         else
           let igstring .= "," . line

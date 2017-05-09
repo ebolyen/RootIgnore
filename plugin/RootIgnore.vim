@@ -29,6 +29,7 @@ function! s:WildignoreFromGitignore(gitpath, isAtRoot)
       if line =~ '^#' | con | endif
       if line == ''   | con | endif
       if line =~ '^!' | con | endif
+      if line =~ '.*,.*' | con | endif
 
 
       if a:isAtRoot
